@@ -1,36 +1,24 @@
 # Coder House v2 — Pre Entrega 3
 
-Aplicación web sencilla hecha con HTML y JavaScript. Solicita el nombre de un estudiante, la cantidad de notas y cada nota; luego calcula el promedio, determina si aprobó (promedio mínimo: 3.5) y muestra el resultado.
+Repositorio de ejercicios y prácticas de HTML y JavaScript. El contenido de los archivos puede cambiar entre ejercicios; este README explica cómo ejecutar una página web del proyecto sin depender de la lógica de un ejercicio específico.
 
 ## Requisitos
 
 - Un navegador web actualizado con JavaScript habilitado.
-- No se requiere instalar dependencias ni usar npm: el proyecto no tiene un proceso de compilación.
+- Para abrir el proyecto mediante un servidor local, Python 3.
 
-## Inicializar la aplicación
+## Ejecutar un ejercicio
 
-1. Descarga o clona el repositorio en tu equipo.
-2. Abre la carpeta del proyecto.
-3. Abre `index.html` en un navegador (por ejemplo, con doble clic o usando **Abrir con**).
-4. Responde las ventanas emergentes: nombre, cantidad de notas y cada nota.
-5. La aplicación mostrará el promedio y el estado final en una ventana emergente.
+1. Abre la carpeta del proyecto y localiza el archivo HTML de entrada del ejercicio que quieres ejecutar.
+2. Para una ejecución sencilla, abre ese archivo HTML con un navegador.
+3. Si el ejercicio necesita cargarse desde un servidor local, abre una terminal en la carpeta del proyecto e inicia el servidor:
 
-También puedes iniciar un servidor local desde la carpeta del proyecto, si prefieres acceder por `localhost`:
+   ```bash
+   python -m http.server 8000
+   ```
 
-```bash
-python -m http.server 8000
-```
+   Si tu sistema usa el comando `python3`, ejecuta `python3 -m http.server 8000`.
 
-Después visita <http://localhost:8000> en el navegador. Si el comando `python` no está disponible en tu sistema, prueba `python3 -m http.server 8000`.
+4. En el navegador, visita <http://localhost:8000/>. Si el archivo HTML de entrada está dentro de una subcarpeta o tiene otro nombre, agrega su ruta a la dirección; por ejemplo, `http://localhost:8000/ruta/archivo.html`.
 
-## Estructura
-
-```text
-coder_house_v2/
-├── index.html     # Página principal; incluye el script de JavaScript
-├── js/
-│   └── main.js    # Solicita los datos, calcula el promedio y presenta el resultado
-└── README.md
-```
-
-El archivo JavaScript se incluye desde `index.html` con `defer`, por lo que se ejecuta cuando el documento HTML ya está disponible.
+El archivo HTML de entrada carga los archivos JavaScript que necesite el ejercicio. Si cambian las rutas o la estructura de archivos, selecciona la página HTML correspondiente y conserva las referencias a sus recursos.
