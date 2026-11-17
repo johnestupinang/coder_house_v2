@@ -1,9 +1,52 @@
-
+//1. constantes y variables
 const notaMinima = 3.5
 const aprobado = "Aprobado"
 const reprobado = "Reprobado"
 
 let notas = []
+
+function agregarPrimeraNota(nota){
+    notas.shift()
+    notas.unshift(nota)
+}
+
+function agregarUltimaNota(nota){
+    notas.pop()
+    notas.push(nota);
+}
+
+function existeNota(nota){
+    return notas.includes(nota)
+}
+
+function obtenerNotaPorInidice(nota){
+    return notas.indexOf(nota)
+}
+
+function reemplazarNota(indice){
+    let nota = parseFloat(prompt("Ingrese la nota"))
+    if (indice === -1){
+        agregarPrimeraNota(nota)
+    } else {
+        notas.splice(indice, 1, nota)
+    }
+}
+
+const calcularPromedio = (cantidadNotas) => {
+    let promedio = 0.0
+    for(const nota of notas){
+        promedio = promedio + nota
+    }
+    return promedio/cantidadNotas
+}
+
+function obtenerEstado(promedio, notaMinima){
+    if (promedio >= notaMinima){
+        return aprobado
+    } 
+    return reprobado
+}
+
 
 function iniciarPrograma () {
     let nombreEstudiante = prompt("Ingrese el nombre del estudiante")
@@ -42,56 +85,6 @@ function iniciarPrograma () {
 
     )
 
-}
-
-//Agregar nota al inicio
-function agregarPrimeraNota(nota){
-    notas.shift()
-    notas.unshift(nota)
-}
-
-//Agregar nota al final
-function agregarUltimaNota(nota){
-    notas.pop()
-    notas.push(nota);
-}
-
-//Buscar nota en especifico
-function existeNota(nota){
-    return notas.includes(nota)
-}
-
-//Buscar nota por indice
-function obtenerNotaPorInidice(nota){
-    return notas.indexOf(nota)
-}
-
-//Reemplazar una nota del estudiante
-function reemplazarNota(indice){
-    let nota = parseFloat(prompt("Ingrese la nota"))
-    if (indice === -1){
-        agregarPrimeraNota(nota)
-    } else {
-        notas.splice(indice, 1, nota)
-    }
-}
-
-
-//Calcular el promedio del estudiante
-const calcularPromedio = (cantidadNotas) => {
-    let promedio = 0.0
-    for(const nota of notas){
-        promedio = promedio + nota
-    }
-    return promedio/cantidadNotas
-}
-
-//Calcular el estado del estudiante
-function obtenerEstado(promedio, notaMinima){
-    if (promedio >= notaMinima){
-        return aprobado
-    } 
-    return reprobado
 }
 
 iniciarPrograma()
