@@ -46,23 +46,12 @@ function cargarNotas () {
 
     let cantidadNotas = parseInt(prompt("Ingrese la cantidad de notas: "))
 
-    if (cantidadNotas === 0){
-        alert("La cantidad minima de notas debe ser mayor a 0")
-
-        while (cantidadNotas !== 0 || cantidadNotas > 0){
-            cantidadNotas = parseInt(prompt("Ingrese la cantidad de notas: "))
-        }
-
-    } else {
-
-        let notas = []
-        for (let i = 0; i < cantidadNotas; i++) {
-            let nota = parseFloat(prompt("Ingrese la nota " + (i+1) + " del alumno"))
-            notas.push(nota)
-        }
-        return notas
-
+    let notas = []
+    for (let i = 0; i < cantidadNotas; i++) {
+        let nota = parseFloat(prompt("Ingrese la nota " + (i+1) + " del alumno"))
+        notas.push(nota)
     }
+    return notas
 
 }
 
